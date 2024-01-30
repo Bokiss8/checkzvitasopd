@@ -45,6 +45,48 @@ def check_file(file_path, output_file_path, filename):
         file_errors_found = True
         # print(f"5 элемент {elements_5th_line[4]} не 30 {elements_5th_line[30]} and 33 {elements_5th_line[33]}")
 
+    # Проверка условия 9
+    sum_of_elements_5_6_7 = round(
+        float(elements_5th_line[5]) + float(elements_5th_line[6]) + float(elements_5th_line[7]), 2)
+    # Преобразование sum_of_elements_5_6_7 в строку с двумя знаками после запятой
+    sum_of_elements_5_6_7_str = "{:.2f}".format(sum_of_elements_5_6_7)
+    # print(f"elements_5th_line[4] {elements_5th_line[4]} = sum_of_elements_5_6_7_str {sum_of_elements_5_6_7_str}")
+    # Вывод типов элементов
+    # print(f"Тип elements_5th_line[4]: {type(elements_5th_line[4])}")
+    # print(f"Тип sum_of_elements_5_6_7: {type(sum_of_elements_5_6_7)}")
+    if elements_5th_line[4] != sum_of_elements_5_6_7_str:
+        error_message = f"В файле {filename} в 5 строці (сума 4+5+6) в 3 колонці не дорівнює сумі колонок 4+5+6."
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+
+    # Проверка условия 10
+    minus_of_elements_14_17 = round(float(elements_5th_line[14]) - float(elements_5th_line[17]), 2)
+    minus_of_elements_14_17_str = "{:.2f}".format(minus_of_elements_14_17)
+    if elements_5th_line[20] != minus_of_elements_14_17_str:
+        error_message = f"В файле {filename} в 5 строці (сума 13-16) в 19 колонці не дорівнює різниці колонок 13-16."
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+
+    # Проверка условия 11
+    minus_of_elements_15_18 = round(float(elements_5th_line[15]) - float(elements_5th_line[18]), 2)
+    minus_of_elements_15_18_str = "{:.2f}".format(minus_of_elements_15_18)
+    if elements_5th_line[21] != minus_of_elements_15_18_str:
+        error_message = f"В файле {filename} в 5 строці (сума 14-17) в 20 колонці не дорівнює різниці колонок 14-17."
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+
+    # Проверка условия 12
+    minus_of_elements_16_19 = round(float(elements_5th_line[16]) - float(elements_5th_line[19]), 2)
+    minus_of_elements_16_19_str = "{:.2f}".format(minus_of_elements_16_19)
+    if elements_5th_line[22] != minus_of_elements_16_19_str:
+        error_message = f"В файле {filename} в 5 строці (сума 15-18) в 21 колонці не дорівнює різниці колонок 15-18."
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+
     # Вернуть True, если обнаружены ошибки, иначе False
 
     return file_errors_found
