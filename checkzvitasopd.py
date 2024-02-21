@@ -23,7 +23,11 @@ def check_file(file_path, output_file_path, filename):
     # Проверка условия 6
     elements_5th_line = lines[4].strip().split(';')
     if elements_5th_line[2] != elements_5th_line[29] or elements_5th_line[2] != elements_5th_line[31]:
-        error_message = f"В файлі {filename} в 5 строці (кількість людей) в 1 колонці неспівпада з 28 або 30."
+        if "_ok" in filename:
+            error_message = (f"ок(підтверджено) - В файлі {filename} в 5 строці (кількість людей) в 1 колонці "
+                             f"неспівпада з 28 або 30.")
+        else:
+            error_message = f"В файлі {filename} в 5 строці (кількість людей) в 1 колонці неспівпада з 28 або 30."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -31,7 +35,11 @@ def check_file(file_path, output_file_path, filename):
 
     # Проверка условия 7
     if elements_5th_line[3] != elements_5th_line[32]:
-        error_message = f"В файлі {filename} в 5 строці (члени родини) в 2 колонці неспівпада з 31."
+        if "_ok" in filename:
+            error_message = (f"ок(підтверджено) - В файлі {filename} в 5 строці (члени родини) в 2 колонці "
+                             f"неспівпада з 31.")
+        else:
+            error_message = f"В файлі {filename} в 5 строці (члени родини) в 2 колонці неспівпада з 31."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -39,7 +47,12 @@ def check_file(file_path, output_file_path, filename):
 
     # Проверка условия 8
     if elements_5th_line[4] != elements_5th_line[30] or elements_5th_line[4] != elements_5th_line[33]:
-        error_message = f"В файлі {filename} в 5 строці (сума) в 3 колонці неспівпада з 29 або 32."
+        if "_ok" in filename:
+            error_message = (f"ок(підтверджено) - В файлі {filename} в 5 строці (сума) в 3 колонці неспівпада з 29 або"
+                             f" 32.")
+        else:
+            error_message = f"В файлі {filename} в 5 строці (сума) в 3 колонці неспівпада з 29 або 32."
+        # Проверка
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -55,7 +68,7 @@ def check_file(file_path, output_file_path, filename):
     # print(f"Тип elements_5th_line[4]: {type(elements_5th_line[4])}")
     # print(f"Тип sum_of_elements_5_6_7: {type(sum_of_elements_5_6_7)}")
     if elements_5th_line[4] != sum_of_elements_5_6_7_str:
-        error_message = f"В файле {filename} в 5 строці (сума 4+5+6) в 3 колонці не дорівнює сумі колонок 4+5+6."
+        error_message = f"В файлі {filename} в 5 строці (сума 4+5+6) в 3 колонці не дорівнює сумі колонок 4+5+6."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -64,7 +77,7 @@ def check_file(file_path, output_file_path, filename):
     minus_of_elements_14_17 = round(float(elements_5th_line[14]) - float(elements_5th_line[17]), 2)
     minus_of_elements_14_17_str = "{:.2f}".format(minus_of_elements_14_17)
     if elements_5th_line[20] != minus_of_elements_14_17_str:
-        error_message = f"В файле {filename} в 5 строці (сума 13-16) в 19 колонці не дорівнює різниці колонок 13-16."
+        error_message = f"В файлі {filename} в 5 строці (сума 13-16) в 19 колонці не дорівнює різниці колонок 13-16."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -73,7 +86,7 @@ def check_file(file_path, output_file_path, filename):
     minus_of_elements_15_18 = round(float(elements_5th_line[15]) - float(elements_5th_line[18]), 2)
     minus_of_elements_15_18_str = "{:.2f}".format(minus_of_elements_15_18)
     if elements_5th_line[21] != minus_of_elements_15_18_str:
-        error_message = f"В файле {filename} в 5 строці (сума 14-17) в 20 колонці не дорівнює різниці колонок 14-17."
+        error_message = f"В файлі {filename} в 5 строці (сума 14-17) в 20 колонці не дорівнює різниці колонок 14-17."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
@@ -82,10 +95,22 @@ def check_file(file_path, output_file_path, filename):
     minus_of_elements_16_19 = round(float(elements_5th_line[16]) - float(elements_5th_line[19]), 2)
     minus_of_elements_16_19_str = "{:.2f}".format(minus_of_elements_16_19)
     if elements_5th_line[22] != minus_of_elements_16_19_str:
-        error_message = f"В файле {filename} в 5 строці (сума 15-18) в 21 колонці не дорівнює різниці колонок 15-18."
+        error_message = f"В файлі {filename} в 5 строці (сума 15-18) в 21 колонці не дорівнює різниці колонок 15-18."
         print(error_message)
         output_file_path.write(error_message + '\n')
         file_errors_found = True
+
+    # Проверка условия 13
+    narah_3 = round(float(elements_5th_line[4]), 2)
+    vuplata_32 = round(float(elements_5th_line[33]), 2)
+    if narah_3 < vuplata_32:
+        error_message = (f"В файлі {filename} в 5 строці (сума 3<32) в 3 колонці сума нарахування менша ніж в 32 "
+                         f"сума виплати.")
+        # Проверка
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+        # print(f"5 элемент {narah_3} < {vuplata_32}")
 
     # Вернуть True, если обнаружены ошибки, иначе False
 
@@ -93,7 +118,7 @@ def check_file(file_path, output_file_path, filename):
 
 
 def main():
-    directory_path = r"D:\time_export"
+    directory_path = r"F:\time_export"
     csv_files = [filename for filename in os.listdir(directory_path) if filename.lower().endswith(".csv")]
 
     if not csv_files:
