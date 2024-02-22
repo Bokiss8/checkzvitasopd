@@ -112,6 +112,18 @@ def check_file(file_path, output_file_path, filename):
         file_errors_found = True
         # print(f"5 элемент {narah_3} < {vuplata_32}")
 
+    # Проверка условия 14
+    people = round(float(elements_5th_line[2]), 2)
+    family = round(float(elements_5th_line[3]), 2)
+    if family < people:
+        error_message = (f"В файлі {filename} в 5 строці (кількість 2<1) в 2 колонці членів родини не може бути менше "
+                         f"ніж кількість людей в 1 ")
+        # Проверка
+        print(error_message)
+        output_file_path.write(error_message + '\n')
+        file_errors_found = True
+        # print(f"5 элемент {narah_3} < {vuplata_32}")
+
     # Вернуть True, если обнаружены ошибки, иначе False
 
     return file_errors_found
